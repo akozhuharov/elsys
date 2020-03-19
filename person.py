@@ -6,17 +6,11 @@ class Person:
     def __add__(self, other_obj):
         return self.age + other_obj.age
 
-    def __sub__(self, other_obj):
-        return self.age - other_obj.age
-    
-    def __mul__(self, other_obj):
-        return self.age * other_obj.age
-    
-    def __radd__(self, age):
-        print(age)
-        return self.age + age
+    def __str__(self):
+        return "My name is {} ".format(self.name)
+
 
 
 p1 = Person("Goshko", 15)
 p2 = Person("Ivan", 14)
-print(p2 * p1)
+print(p2)
