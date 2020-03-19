@@ -1,0 +1,8 @@
+person:
+  name: Goshko
+  age: 15
+  masiv:
+    "nomer1"
+    "nomer2"
+  nested:
+  - 

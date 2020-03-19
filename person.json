@@ -1,0 +1,10 @@
+{
+    "name": "Goshko",
+    "age": 15,
+    "nested": {
+        "predmet1": "OOP",
+        "predmet2": "Scriptovi"
+    },
+    "masiv": ["nomer1", "nomer2"]
+
+}
