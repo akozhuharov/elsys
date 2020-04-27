@@ -1,0 +1,18 @@
+<h1>This is the initial title</h1>
+<p>This is my paragraph</p>
+{% for post in posts %}
+  <h3>{{post.title}}</h3>
+  <p>{{post.text}}</p>
+  <small>{{post.created}}</small>
+{% endfor %}
+
+
+
+<form action="{% url 'home:create' %}" method="post">
+{% csrf_token %}
+    <label>Title</label>
+    <input type="text" name="title">
+    <label>Text</label>
+    <input type="text" name="text">
+    <input type="submit" value="Submit">
+</form>
