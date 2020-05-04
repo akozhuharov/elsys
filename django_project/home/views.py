@@ -10,7 +10,9 @@ def index(request):
 
 
 def create(request):
-    data = request.POST
-    obj = Post(data)
-    obj.save()
-    return obj
+    if request.method == "POST":
+        obj = Post(title=request.POST.get("title"),
+                   text=request.POST.get("text"))
+        obj.save()
+        return render(request, "success.html")
+    return render(request, "create.html")
