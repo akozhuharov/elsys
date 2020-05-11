@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 from home.models import Post
 
@@ -16,3 +16,9 @@ def create(request):
         obj.save()
         return render(request, "success.html")
     return render(request, "create.html")
+
+
+def detail(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    context = {"post": post}
+    return render(request, "detail.html", context)
