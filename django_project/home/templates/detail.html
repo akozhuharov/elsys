@@ -8,5 +8,9 @@
             {{ post.created }}
         </div>
         <p>{{ post.text|linebreaksbr }}</p>
+        <form method="post">
+          {%csrf_token%}
+          <button type="submit" class="btn btn-primary" href="/posts/{{post.id}}" >Delete</button>
+        </form>
     </div>
 {% endblock %}

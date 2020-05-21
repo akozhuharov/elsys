@@ -6,8 +6,7 @@
             <div class="date">
                 {{ post.created }}
             </div>
-            <h2><a href="/posts/{{ post.id }}">{{ post.title }}</a></h2>
-            <p>{{ post.text|linebreaksbr }}</p>
+            <h2><a href="/posts/{{ post.id }}/">{{ post.title }}</a></h2>
         </div>
     {% endfor %}
     <a class="btn btn-primary" href="/create" role="button">New Post</a>

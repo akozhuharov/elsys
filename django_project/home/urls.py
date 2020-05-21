@@ -5,4 +5,4 @@ urlpatterns = [
     path('', index),
     path('create/', create),
     path('posts/<int:post_id>/', detail)
-]
+]   

@@ -14,11 +14,17 @@ def create(request):
         obj = Post(title=request.POST.get("title"),
                    text=request.POST.get("text"))
         obj.save()
-        return render(request, "success.html")
+        context = {"action": "created"}
+        return render(request, "success.html", context)
     return render(request, "create.html")
 
 
 def detail(request, post_id):
+    if request.method == "POST":
+        post = get_object_or_404(Post, pk=post_id)
+        post.delete()
+        context = {"action": "deleted"}
+        return render(request, "success.html", context)
     post = get_object_or_404(Post, pk=post_id)
     context = {"post": post}
     return render(request, "detail.html", context)
