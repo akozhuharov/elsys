@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for author in authors %}
+        <div class="authors">
+            <h2>{{ author.name }}</h2>
+            <small>Date joined: {{ author.date_joined }}</small>
+        </div>
+    {% endfor %}
+    <a class="btn btn-primary" href="/authors/create" role="button">New Author</a>
+{% endblock %}
