@@ -15,7 +15,7 @@ class Server:
 
     def get_weather(self):
         r = requests.get("https://api.openweathermap.org/data/2.5/weather?q=Sofia&appid=b7ef9a1647a36bdb99c857407dc5e116")
-        return pickle.dumps(r.json()['weather'])
+        return r.json()['weather']
 
     def handler(self, connection, addr):
         pid = os.getpid()
@@ -43,9 +43,9 @@ class Server:
             response = self.get_weather()
         elif request.lower() == "airquality":
             myaqi = aqi.to_iaqi(aqi.POLLUTANT_PM25, '12', algo=aqi.ALGO_EPA)
-            response = pickle.dumps(f"Air quality index is: {myaqi}")
+            response = f"Air quality index is: {myaqi}"
         else:
-            response = pickle.dumps("Invalid command")
+            response = "Invalid command"
         connection.send(pickle.dumps(response))
         print(f"Returning response {response} to requester.")
         connection.close()
