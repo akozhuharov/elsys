@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Transactions</h1> 
+{% for tr in transactions %}
+{% if tr.type == "OUT" %}
+<h5 style="color:red">{{ tr.amount}}$ <small>{{ tr.type}}</small></h5>
+{% else %}
+<h5 style="color:green">{{ tr.amount}}$ <small>{{ tr.type}}</small></h5>
+{% endif %}
+{% endfor %}
+<a class="btn btn-primary" href="/add" role="button">Add</a>
+{% endblock content %}
